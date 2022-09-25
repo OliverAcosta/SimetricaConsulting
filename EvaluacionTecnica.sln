@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32413.511
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infraestructura", "Infraestructura\Infraestructura.csproj", "{2A36875C-E101-49FB-9B7B-590EE2DB2BB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvaluacionTecnicaApi", "EvaluacionTecnicaApi\EvaluacionTecnicaApi.csproj", "{8ACD66ED-3327-44EB-90EE-71EDDF719260}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A36875C-E101-49FB-9B7B-590EE2DB2BB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A36875C-E101-49FB-9B7B-590EE2DB2BB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A36875C-E101-49FB-9B7B-590EE2DB2BB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A36875C-E101-49FB-9B7B-590EE2DB2BB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ACD66ED-3327-44EB-90EE-71EDDF719260}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ACD66ED-3327-44EB-90EE-71EDDF719260}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ACD66ED-3327-44EB-90EE-71EDDF719260}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ACD66ED-3327-44EB-90EE-71EDDF719260}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B8F785BC-E9B6-4C18-9010-46FBDA20AD07}
+	EndGlobalSection
+EndGlobal

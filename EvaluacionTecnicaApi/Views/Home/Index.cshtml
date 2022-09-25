@@ -1,0 +1,273 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+<div class="row">
+    <br />
+    <br />
+
+    <div class="col-md-12">
+        <h1>Crud de usuario</h1>
+        <table id="user-table" class="table table-striped table-responsive table-hover">
+        </table>
+        <div class="form-inline">
+            <div class="form-group">
+                <label class="control-label" for="Nombre">Id</label>
+                <input type="text" name="Id" value="" id="Id" class="form-control" disabled />
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="RolId">RolId</label>
+                <input type="text" name="RolId" value="" id="RolId" class="form-control" disabled />
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="Nombre">Nombre</label>
+                <input type="text" name="Nombre" value="" id="Nombre" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="Apellido">Apellido</label>
+                <input type="text" name="Apellido" value="" id="Apellido" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="Cedula">Cedula</label>
+                <input type="text" name="Cedula" value="" id="Cedula" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="Usuario_Nombre">Usuario_Nombre</label>
+                <input type="text" name="Usuario_Nombre" id="Usuario_Nombre" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="Contrasena">Contrasena</label>
+                <input type="text" name="Contrasena" value="" id="Contrasena" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="Fecha_Nacimiento">Fecha_Nacimiento</label>
+                <input type="datetime" name="Fecha_Nacimiento" value="" id="Fecha_Nacimiento" class="form-control" disabled />
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="Usuario_Transaccion">Usuario_Transaccion</label>
+                <input type="datetime" name="Usuario_Transaccion" value="" id="Usuario_Transaccion" class="form-control" disabled />
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="Fecha_Transaccion">Fecha_Transaccion</label>
+                <input type="datetime" name="Fecha_Transaccion" value="" id="Fecha_Transaccion" class="form-control" disabled/>
+            </div>
+            <div>
+                <button class="btn btn-primary" id="add" onclick="Crud('add','usuario')">Add</button>
+                <button class="btn btn-warning" id="update" onclick="Crud('update','usuario')">Update</button>
+                <button class="btn btn-danger" id="delete" onclick="Crud('delete','usuario')">Delete</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <h1>Crud de Roles</h1>
+        <table id="roles-table" class="table table-striped table-responsive table-hover">
+        </table>
+        <div class="form-inline">
+            <div class="form-group">
+                <label class="control-label" for="name">Id</label>
+                <input type="text" name="rid" value="" id="rid" class="form-control" disabled />
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="name">Nombre</label>
+                <input type="text" name="name" value="" id="name" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="usr">Usuario Transaccion</label>
+                <input type="text" name="usr" value="" id="usr" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="fecha">Fecha Transaccion</label>
+                <input type="datetime" name="fecha" value="" id="fecha" class="form-control" disabled />
+            </div>
+   
+        </div>
+        <div>
+            <button class="btn btn-primary" id="add" onclick="Crud('add','roles')">Add</button>
+            <button class="btn btn-warning" id="update" onclick="Crud('update','roles')">Update</button>
+            <button class="btn btn-danger" id="delete" onclick="Crud('delete','roles')">Delete</button>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h1>Autentication de usuario</h1>
+        <div class="form">
+            <div class="form-group">
+                <label class="control-label" for="user">Nombre de usuario</label>
+                <input type="text" name="user" value="" id="user" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="pass">Contraseña</label>
+                <input type="password" name="pass" value="" id="pass" class="form-control" />
+            </div>
+
+            <button class="btn btn-primary" id="login">Login</button>
+        </div>
+        <br/>
+   
+    </div>
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+    var values = {};
+    function edit(ele, n) {
+        if (ele == "users") {
+            var user = values.users.filter(usr => usr.Id == n)[0];
+            $("#Id").val(user.Id);
+            $("#RolId").val(user.RolId);
+            $("#Nombre").val(user.Nombre);
+            $("#Apellido").val(user.Apellido);
+            $("#Cedula").val(user.Cedula);
+
+            $("#Usuario_Nombre").val(user.Usuario_Nombre);
+            $("#Contrasena").val(user.Contrasena);
+
+            $("#Fecha_Nacimiento").val(user.Fecha_Nacimiento);
+            $("#Usuario_Transaccion").val(user.Usuario_Transaccion);
+            $("#Fecha_Transaccion").val(user.Fecha_Transaccion);
+        }
+        if (ele == "roles") {
+            var role = values.roles.filter(role => role.Id == n)[0];
+            $("#rid").val(role.Id);
+            $("#name").val( role.Nombre);
+            $("#usr").val(role.Usuario_Transaccion);
+            $("#fecha").val(role.Fecha_Transaccion);
+
+        }
+    }
+    $("#login").on("click", function () {
+        var user = $("#user").val();
+        var pass = $("#pass").val();
+
+        $.ajax({
+            url: "/API/usuarios/login",
+            method: "Post",
+            data: {
+                "Usuario_Nombre": user,
+                "Contrasena": pass
+            }
+        }).done(function (response) {
+            alert(`El usuario ${response.Success ? 'se ha autenticado' : 'no se ha podido autenticar'}`);
+        });
+    });
+    function createTable(table, obj, ele) {
+        $(table + " thead").remove();
+        $(table + " tbody").remove()
+        var columns = Object.keys(obj[0]);
+        var head = "<thead><tr>";
+        for (var i = 0; i < columns.length; i++) {
+            head += `<th> ${columns[i]}</th>`
+        }
+
+        head += "</tr></thead>";
+        $(table).append(head);
+
+     
+        var body = "<tbody>";
+        for (var i = 0; i < obj.length; i++) {
+            body += `<tr onclick='edit("${ele}", ${obj[i].Id})'>`
+            for (var j = 0; j < columns.length; j++) {
+                body += `<td>${obj[i][columns[j]]}</td>`
+            }
+            
+            body += "<tr> ";
+        }
+        $(table).append(body);
+        body += "<tbody>";
+    }
+
+
+    function getdata() {
+        $.ajax({
+            url: "/API/usuarios/all",
+            method: "get",
+        }).done(function (response) {
+            createTable("#user-table", response, "users")
+            values.users = response;
+        });
+
+        $.ajax({
+            url: "/API/roles/all",
+            method: "get",
+        }).done(function (response) {
+            createTable("#roles-table", response, "roles")
+            values.roles = response;
+        });
+
+    }
+
+    function Crud(action, str) {
+        var obj = {};
+        var url = "/API/";
+        if (str == "usuario") {
+            obj.Id  = $("#Id").val();
+            obj.RolId = $("#RolId").val();
+            obj.Nombre = $("#Nombre").val();
+            obj.Apellido = $("#Apellido").val();
+            obj.Cedula = $("#Cedula").val();
+            obj.Usuario_Nombre = $("#Usuario_Nombre").val();
+            obj.Contrasena = $("#Contrasena").val();
+            obj.Fecha_Nacimiento = $("#Fecha_Nacimiento").val();
+            obj.Usuario_Transaccion = "56"; //$("#Usuario_Transaccion").val();
+            obj.Fecha_Transaccion = "45";// $("#Fecha_Transaccion").val();
+            url += "usuarios";
+        }
+        if (str == "roles") {
+            obj.Id = $("#rid").val();
+            obj.Nombre = $("#name").val();
+            obj.Usuario_Transaccion = $("#usr").val();
+            obj.Fecha_Transaccion = "22";//cha").val();
+            url += "roles";
+        }
+        var columns = Object.keys(obj);
+        for (var i = 0; i < columns.length; i++) {
+            if (obj[columns[i]].trim().length == 0) {
+                alert("Debe de llenar los campos correspondientes!");
+                return;
+            }
+        }
+
+        var method = "";
+        if (action == "add") {
+            url += "/add";
+            method = "post";
+        }
+        if (action == "update") {
+            url += "/update";
+            method = "put";
+        }
+        if (action == "delete") {
+            url += "/delete/" + obj.Id;
+            method = "delete";
+        }
+        $.ajax({
+            url: url,
+            method: method,
+            data:obj
+        }).done(function (response) {
+            if (response == null) {
+                alert("Ha sucedido algun error, contacte al administrador!");
+            } else {
+                if (str == "usuario" && action == "add" || action == "update") {
+                    getdata();
+                    alert("Usuario agregado o actualizado!");
+                } else if (action == "delete" && str == "usuario"){
+                    alert("Se ha eliminado un usuario!");
+                    getdata();
+                }
+
+                if (str == "roles" && action == "add" || action == "update") {
+                    values.roles.push(response);
+                    getdata();
+                    alert("Role agregado o actualizado!");
+                } else if (action == "delete" && str == "roles") {
+                    alert("Se ha eliminado un rol!");
+                    getdata();
+                }
+            }
+        });
+       
+    }
+
+    getdata();
+</script>
