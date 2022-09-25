@@ -1,0 +1,2 @@
+1-dejo el archivo del backup de la base de datos evaluaciontecnica.bak
+2-en el archivo juan_acosta_consultas dejo las consultas de sql solicitadas
